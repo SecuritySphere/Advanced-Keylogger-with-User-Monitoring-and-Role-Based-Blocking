@@ -2,7 +2,7 @@ import hashlib
 import getpass  # For hiding password input
 
 # Hashed password for demonstration (replace with your actual hashed password)
-stored_hash = "b6ed35e82cc571aa70dde3d57da6c7ed4cdd122be520c32c56c76fdb5566715d"          #asus pd-"5d11339ba565bff5d4b2137a28fe440999af3f54980c36e6c6b76f012c28f6c5"
+stored_hash = "HASH OF YOUR PD"          
 
 # Function to authenticate admin
 def authenticate_admin():
@@ -28,7 +28,7 @@ def display_menu():
 # Function to view blocked users
 def view_blocked_users():
     try:
-        with open("C:/ProgramData/blocked_user.txt", "r") as f:
+        with open("Path/to/blocked_user.txt", "r") as f:
             blocked_users = f.readlines()
         if blocked_users:
             print("\nList of Blocked Users:")
@@ -42,7 +42,7 @@ def view_blocked_users():
 # Function to unblock user
 def unblock_user():
     try:
-        with open("C:/ProgramData/blocked_user.txt", "r") as f:
+        with open("Path/to/blocked_user.txt", "r") as f:
             blocked_users = f.readlines()
         
         username = input("Enter username to unblock: ").strip()  # Strip whitespace from input
