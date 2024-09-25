@@ -1,6 +1,6 @@
 import os
 
-blocked_users_file = r'C:/ProgramData/blocked_user.txt'
+blocked_users_file = r'Path/to/blocked_user.txt'
 username = os.getenv('USERNAME')
 
 if os.path.exists(blocked_users_file):
